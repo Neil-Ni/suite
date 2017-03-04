@@ -1,5 +1,8 @@
 *.py[cod]
 *.swp
+.idea
+.env
+dump.rdb
 
 # C extensions
 *.so

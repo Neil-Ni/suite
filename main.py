@@ -10,13 +10,13 @@ from app.models import *
 
 import unittest
 
-app = create_app(os.environ.get("ENV", "prod"))
+app = create_app(os.environ.get("ENV", "dev"))
 celery = create_celery_app(app)
 manager = Manager(app)
 migrate = Migrate(app, db)
 
 manager.add_command("db", MigrateCommand)
-manager.add_command("runserver", Server(host="0.0.0.0", port=80))
+manager.add_command("runserver", Server(host="127.0.0.1", port=8080))
 manager.add_command("runtestserver", Server(host="127.0.0.1", port=8080))
 
 # Set flask-restful to be utf-8

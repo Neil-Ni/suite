@@ -46,7 +46,7 @@ css_blog = stylesheets.css_blog()
 def create_celery_app(app=None):
     """Return a celery app in app context"""
     app = app or create_app(
-        os.environ.get("ENV", "prod"), register_blueprints=False)
+        os.environ.get("ENV", "dev"), register_blueprints=False)
     celery = Celery(
         app.import_name,
         backend=app.config['CELERY_RESULT_BACKEND'],
